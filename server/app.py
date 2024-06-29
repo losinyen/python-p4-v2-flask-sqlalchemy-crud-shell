@@ -1,7 +1,7 @@
 # server/app.py
 
-from flask import Flask
-from flask_migrate import Migrate
+from flask import Flask # type: ignore
+from flask_migrate import Migrate # type: ignore
 
 from models import db
 
@@ -21,5 +21,5 @@ migrate = Migrate(app, db)
 db.init_app(app)
 
 
-if __name__ == '__main__':
+if __name__ == '_main_':
     app.run(port=5555, debug=True)

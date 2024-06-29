@@ -1,5 +1,5 @@
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import MetaData
+from flask_sqlalchemy import SQLAlchemy # type: ignore
+from sqlalchemy import MetaData # type: ignore
 
 # contains definitions of tables and associated schema constructs
 metadata = MetaData()
@@ -11,11 +11,11 @@ db = SQLAlchemy(metadata=metadata)
 
 
 class Pet(db.Model):
-    __tablename__ = 'pets'
+    _tablename_ = 'pets'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     species = db.Column(db.String)
 
-    def __repr__(self):
+    def _repr_(self):
         return f'<Pet {self.id}, {self.name}, {self.species}>'
